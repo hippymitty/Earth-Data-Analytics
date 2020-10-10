@@ -132,3 +132,24 @@ boulder_july_2018 = pd.read_csv(file_path,
                                 na_values=[-999])
 
 boulder_july_2018.head()
+# Both min and mean now accurately reflect the true data
+boulder_july_2018.describe()
+
+#Finally, plot the data one last time to see that the negative values -999 are no longer on the plot.
+# Create figure and plot space
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Add x-axis and y-axis
+ax.scatter(boulder_july_2018.index.values,
+        boulder_july_2018['precip'],
+        color='purple')
+
+# Set title and labels for axes
+ax.set(xlabel="Date",
+       ylabel="Precipitation (inches)",
+       title="Daily Total Precipitation\nBoulder, Colorado in July 2018")
+
+plt.show()
+
+#Note: if there are multiple types of missing values in your dataset, you can add multiple values in the na_values parameter as follows:
+#na_values=['NA', ' ', -999])
